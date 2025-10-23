@@ -36,123 +36,94 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4">
-          <Image
-            src="/codeguide-logo.png"
-            alt="CodeGuide Logo"
-            width={50}
-            height={50}
-            className="rounded-xl sm:w-[60px] sm:h-[60px]"
-          />
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 bg-clip-text text-transparent">
-            CodeGuide Starter
+          <div className="bg-gradient-to-br from-blue-500 to-green-500 rounded-xl sm:w-[60px] sm:h-[60px] flex items-center justify-center">
+            <span className="text-white font-bold text-xl">CK</span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-blue-400 bg-clip-text text-transparent">
+            Cluster Kita
           </h1>
         </div>
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-          Build faster with your AI coding agent
+          Platform terpadu untuk manajemen klaster dan keterlibatan komunitas
         </p>
       </div>
 
       <main className="container mx-auto px-4 sm:px-6 pb-12 sm:pb-8 max-w-5xl">
         <div className="text-center mb-8">
-          <div className="text-4xl sm:text-5xl mb-2">⚠️</div>
-          <div className="font-bold text-lg sm:text-xl mb-1">Setup Required</div>
-          <div className="text-sm sm:text-base text-muted-foreground">
-            Add environment variables to get started
+          <div className="text-4xl sm:text-5xl mb-2">🏠</div>
+          <div className="font-bold text-lg sm:text-xl mb-1">Selamat Datang di Cluster Kita</div>
+          <div className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+            Platform terpadu untuk mengelola administrasi, keamanan, dan interaksi komunitas perumahan/klaster Anda
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-          {/* Clerk */}
-          <div className="text-center p-3 sm:p-4 rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10">
-            <div className="flex justify-center mb-3">
-              <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500" />
-            </div>
-            <div className="font-semibold mb-2 text-sm sm:text-base">
-              Clerk Auth
-            </div>
-            <div className="text-xs text-muted-foreground mb-2">
-              <div className="font-mono bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded mb-1">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</div>
-              <div className="font-mono bg-blue-100 dark:bg-blue-800 px-2 py-1 rounded">CLERK_SECRET_KEY</div>
-            </div>
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() =>
-                window.open("https://dashboard.clerk.com", "_blank")
-              }
-              className="w-full text-xs sm:text-sm"
-            >
-              <ExternalLink className="w-3 h-3 mr-1" />
-              Dashboard
-            </Button>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mb-8">
+          {/* Features */}
+          <div className="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 border border-blue-200 dark:border-blue-800">
+            <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+              <CheckCircle className="w-5 h-5 text-blue-500" />
+              Fitur Utama
+            </h3>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-start">
+                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                <span>Manajemen Iuran (IPL) & Pembayaran QRIS</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                <span>Keamanan & Tombol Darurat (SOS)</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                <span>Interaksi Komunitas & Forum Warga</span>
+              </li>
+              <li className="flex items-start">
+                <CheckCircle className="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
+                <span>Pelaporan Masalah & Booking Fasilitas</span>
+              </li>
+            </ul>
           </div>
 
-          {/* Supabase */}
-          <div className="text-center p-3 sm:p-4 rounded-lg bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10">
-            <div className="flex justify-center mb-3">
-              <Database className="w-6 h-6 sm:w-8 sm:h-8 text-green-500" />
-            </div>
-            <div className="font-semibold mb-2 text-sm sm:text-base">
-              Supabase DB
-            </div>
-            <div className="text-xs text-muted-foreground mb-2">
-              <div className="font-mono bg-green-100 dark:bg-green-800 px-2 py-1 rounded mb-1">NEXT_PUBLIC_SUPABASE_URL</div>
-              <div className="font-mono bg-green-100 dark:bg-green-800 px-2 py-1 rounded">NEXT_PUBLIC_SUPABASE_ANON_KEY</div>
-            </div>
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() =>
-                window.open("https://supabase.com/dashboard", "_blank")
-              }
-              className="w-full text-xs sm:text-sm"
-            >
-              <ExternalLink className="w-3 h-3 mr-1" />
-              Dashboard
-            </Button>
-          </div>
-
-          {/* AI */}
-          <div className="text-center p-3 sm:p-4 rounded-lg bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/10 dark:to-pink-900/10 sm:col-span-2 md:col-span-1">
-            <div className="flex justify-center mb-3">
-              <Zap className="w-6 h-6 sm:w-8 sm:h-8 text-purple-500" />
-            </div>
-            <div className="font-semibold mb-2 text-sm sm:text-base">
-              AI SDK
-            </div>
-            <div className="text-xs text-muted-foreground mb-2">
-              <div className="font-mono bg-purple-100 dark:bg-purple-800 px-2 py-1 rounded mb-1">OPENAI_API_KEY</div>
-              <div className="font-mono bg-purple-100 dark:bg-purple-800 px-2 py-1 rounded">ANTHROPIC_API_KEY</div>
-            </div>
-            <div className="grid grid-cols-2 gap-1 sm:gap-2">
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() =>
-                  window.open("https://platform.openai.com", "_blank")
-                }
-                className="text-xs px-1 sm:px-2"
-              >
-                OpenAI
-              </Button>
-              <Button
-                size="sm"
-                variant="outline"
-                onClick={() =>
-                  window.open("https://console.anthropic.com", "_blank")
-                }
-                className="text-xs px-1 sm:px-2"
-              >
-                Anthropic
-              </Button>
-            </div>
+          {/* Getting Started */}
+          <div className="p-6 rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/10 dark:to-emerald-900/10 border border-green-200 dark:border-green-800">
+            <h3 className="font-bold text-lg mb-3 flex items-center gap-2">
+              <Zap className="w-5 h-5 text-green-500" />
+              Mulai Sekarang
+            </h3>
+            <ol className="space-y-2 text-sm list-decimal list-inside">
+              <li>Daftar sebagai warga atau admin</li>
+              <li>Akses dashboard sesuai peran Anda</li>
+              <li>Gunakan fitur-fitur untuk mengelola klaster</li>
+              <li>Ikuti komunitas dan komunikasi</li>
+            </ol>
           </div>
         </div>
 
         {/* Chat Section */}
         <SignedIn>
           <div className="mt-6 sm:mt-8">
-            <Chat />
+            <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow">
+              <h3 className="font-semibold mb-2">Selamat Datang!</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                Anda telah berhasil masuk. Akses dashboard sesuai peran Anda.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => window.location.href = "/dashboard"}
+                >
+                  Dashboard Saya
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={() => window.location.href = "/profile"}
+                >
+                  Profil Saya
+                </Button>
+              </div>
+            </div>
           </div>
         </SignedIn>
       </main>

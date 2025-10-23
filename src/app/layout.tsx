@@ -23,9 +23,9 @@ const parkinsans = Parkinsans({
 });
 
 export const metadata: Metadata = {
-  title: "CodeGuide Starter Kit",
+  title: "Cluster Kita - Platform Manajemen Klaster dan Keterlibatan Komunitas",
   description:
-    "A modern Next.js starter with TypeScript, TailwindCSS, shadcn/ui, Vercel AI SDK, Clerk, and Supabase",
+    "Platform terpadu untuk perumahan/klaster yang mengotomatiskan administrasi, meningkatkan keamanan, dan memfasilitasi komunitas",
 };
 
 export default function RootLayout({

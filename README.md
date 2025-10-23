@@ -1,186 +1,169 @@
-[![CodeGuide](/codeguide-backdrop.svg)](https://codeguide.dev)
+# Cluster Kita - Platform Manajemen Klaster dan Keterlibatan Komunitas
 
-# CodeGuide Starter Kit
+Platform terpadu untuk perumahan/klaster yang mengotomatiskan administrasi, meningkatkan keamanan, dan memfasilitasi komunitas.
 
-A modern web application starter template built with Next.js 15, featuring authentication, database integration, AI capabilities, and dark mode support.
+## Fitur Utama
 
-## Tech Stack
+### Pilar 1: Keuangan & Administrasi Inti
+- Manajemen Iuran (IPL) dengan pembayaran QRIS via Midtrans
+- Riwayat transaksi yang transparan
+- Pengajuan surat pengantar
+- Manajemen data warga
 
-- **Framework:** [Next.js 15](https://nextjs.org/) (App Router)
-- **Language:** TypeScript
-- **Authentication:** [Clerk](https://clerk.com/)
-- **Database:** [Supabase](https://supabase.com/)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
-- **AI Integration:** [Vercel AI SDK](https://sdk.vercel.ai/)
-- **Theme System:** [next-themes](https://github.com/pacocoursey/next-themes)
+### Pilar 2: Keamanan & Darurat
+- Tombol darurat (SOS) dengan notifikasi instan
+- Log aktivitas darurat
 
-## Prerequisites
+### Pilar 3: Interaksi & Keterlibatan Komunitas
+- Papan pengumuman
+- Forum warga
+- Jajak pendapat (polling)
+- Kotak saran privat
 
-Before you begin, ensure you have the following:
-- Node.js 18+ installed
-- A [Clerk](https://clerk.com/) account for authentication
-- A [Supabase](https://supabase.com/) account for database
-- Optional: [OpenAI](https://platform.openai.com/) or [Anthropic](https://console.anthropic.com/) API key for AI features
-- Generated project documents from [CodeGuide](https://codeguide.dev/) for best development experience
+### Pilar 4: Pelaporan & Pengelolaan Fasilitas
+- Sistem pelaporan masalah (ticketing)
+- Booking fasilitas
 
-## Getting Started
+## Teknologi yang Digunakan
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd codeguide-starter-kit
-   ```
+- **Framework**: Next.js (App Router)
+- **Backend**: Server Actions dan API Routes
+- **Database**: Supabase (PostgreSQL)
+- **Otentikasi**: Clerk
+- **UI**: TailwindCSS dan shadcn/ui
+- **Payment Gateway**: Midtrans
+- **Notifikasi**: WhatsApp Gateway API
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   pnpm install
-   ```
+## Prasyarat
 
-3. **Environment Variables Setup**
-   - Copy the `.env.example` file to `.env.local`:
-     ```bash
-     cp .env.example .env.local
-     ```
-   - Fill in the environment variables in `.env.local` (see Configuration section below)
+- Node.js 18+
+- npm atau yarn
+- Akun Supabase
+- Akun Clerk
+- Akun Midtrans (Sandbox atau Production)
 
-4. **Start the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   pnpm dev
-   ```
+## Instalasi
 
-5. **Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.**
+1. Clone repository ini:
+```bash
+git clone <repository-url>
+cd aplikasi-iuaran-warga1
+```
 
-The homepage includes a setup dashboard with direct links to configure each service.
+2. Install dependensi:
+```bash
+npm install
+```
 
-## Configuration
+3. Salin file environment dan konfigurasi:
+```bash
+cp .env.example .env.local
+```
 
-### Clerk Setup
-1. Go to [Clerk Dashboard](https://dashboard.clerk.com/)
-2. Create a new application
-3. Go to API Keys
-4. Copy the `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY`
-
-### Supabase Setup
-1. Go to [Supabase Dashboard](https://supabase.com/dashboard)
-2. Create a new project
-3. Go to Authentication → Integrations → Add Clerk (for third-party auth)
-4. Go to Project Settings > API
-5. Copy the `Project URL` as `NEXT_PUBLIC_SUPABASE_URL`
-6. Copy the `anon` public key as `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-
-### AI Integration Setup (Optional)
-1. Go to [OpenAI Platform](https://platform.openai.com/) or [Anthropic Console](https://console.anthropic.com/)
-2. Create an API key
-3. Add to your environment variables
-
-## Environment Variables
-
-Create a `.env.local` file in the root directory with the following variables:
-
-```env
-# Clerk Authentication
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
-CLERK_SECRET_KEY=your_secret_key
-
-# Supabase
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+4. Atur variabel lingkungan:
+```bash
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 
-# AI Integration (Optional)
-OPENAI_API_KEY=your_openai_api_key
-ANTHROPIC_API_KEY=your_anthropic_api_key
+# Clerk Configuration
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+
+# Midtrans Configuration (for payment gateway)
+MIDTRANS_SERVER_KEY=your_midtrans_server_key
+MIDTRANS_CLIENT_KEY=your_midtrans_client_key
+MIDTRANS_IS_PRODUCTION=false
+
+# WhatsApp Gateway Configuration
+WHATSAPP_API_KEY=your_whatsapp_api_key
+WHATSAPP_GATEWAY_URL=your_whatsapp_gateway_url
+
+# Other Configuration
+NEXT_PUBLIC_APP_URL=http://localhost:3000
 ```
 
-## Features
-
-- 🔐 Authentication with Clerk (middleware protection)
-- 🗄️ Supabase Database with third-party auth integration
-- 🤖 AI Chat Interface with OpenAI/Anthropic support
-- 🎨 40+ shadcn/ui components (New York style)
-- 🌙 Dark mode with system preference detection
-- 🎯 Built-in setup dashboard with service status
-- 🚀 App Router with Server Components
-- 🔒 Row Level Security examples with Clerk user IDs
-- 📱 Responsive design with TailwindCSS v4
-- 🎨 Custom fonts (Geist Sans, Geist Mono, Parkinsans)
-
-## Project Structure
-
-```
-codeguide-starter-kit/
-├── src/
-│   ├── app/                    # Next.js app router pages
-│   │   ├── api/chat/          # AI chat API endpoint
-│   │   ├── globals.css        # Global styles with dark mode
-│   │   ├── layout.tsx         # Root layout with providers
-│   │   └── page.tsx           # Hero + setup dashboard
-│   ├── components/            # React components
-│   │   ├── ui/                # shadcn/ui components (40+)
-│   │   ├── chat.tsx           # AI chat interface
-│   │   ├── theme-provider.tsx # Theme context
-│   │   └── theme-toggle.tsx   # Dark mode toggle
-│   ├── lib/                   # Utility functions
-│   │   ├── supabase.ts        # Supabase client with Clerk auth
-│   │   ├── user.ts            # User utilities
-│   │   ├── utils.ts           # General utilities
-│   │   └── env-check.ts       # Environment validation
-│   └── middleware.ts          # Clerk route protection
-├── supabase/
-│   └── migrations/            # Database migrations with RLS examples
-├── CLAUDE.md                  # AI coding agent documentation
-├── SUPABASE_CLERK_SETUP.md   # Integration setup guide
-└── components.json            # shadcn/ui configuration
+5. Jalankan aplikasi:
+```bash
+npm run dev
 ```
 
-## Database Integration
+Aplikasi akan berjalan di http://localhost:3000
 
-This starter includes modern Clerk + Supabase integration:
+## Konfigurasi Supabase
 
-- **Third-party auth** (not deprecated JWT templates)
-- **Row Level Security** policies using `auth.jwt() ->> 'sub'` for Clerk user IDs
-- **Example migrations** with various RLS patterns (user-owned, public/private, collaboration)
-- **Server-side client** with automatic Clerk token handling
+1. Buat proyek baru di https://supabase.com
+2. Jalankan skema database dari `src/lib/database-setup.sql` di SQL Editor Supabase
+3. Atur Row Level Security (RLS) sesuai dengan skema
+4. Konfigurasi variabel lingkungan
 
-## AI Coding Agent Integration
+## Konfigurasi Clerk
 
-This starter is optimized for AI coding agents:
+1. Buat aplikasi di https://clerk.com
+2. Dapatkan key Clerk dan tambahkan ke variabel lingkungan
+3. Konfigurasi webhook di Clerk untuk URL: `http://your-domain.com/api/webhooks/clerk`
 
-- **`CLAUDE.md`** - Comprehensive project context and patterns
-- **Setup guides** with detailed integration steps
-- **Example migrations** with RLS policy templates
-- **Clear file structure** and naming conventions
-- **TypeScript integration** with proper type definitions
+## Konfigurasi Midtrans
 
-## Documentation Setup
+1. Daftar akun Midtrans (sandbox atau production)
+2. Dapatkan server key dan client key
+3. Tambahkan ke variabel lingkungan
+4. Konfigurasi webhook di Midtrans untuk URL: `http://your-domain.com/api/webhooks/midtrans`
 
-To implement the generated documentation from CodeGuide:
+## Struktur Aplikasi
 
-1. Create a `documentation` folder in the root directory:
-   ```bash
-   mkdir documentation
-   ```
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── api/                # API Routes
+│   ├── dashboard/          # Dashboard user
+│   ├── admin/              # Admin panel
+│   ├── finance/            # Financial management
+│   ├── security/           # Security features
+│   ├── community/          # Community features
+│   ├── facilities/         # Facilities management
+├── components/            # UI Components
+│   ├── ui/                # shadcn/ui components
+│   └── dashboard/         # Dashboard-specific components
+├── lib/                   # Business logic and utilities
+│   ├── supabase.ts        # Supabase client and functions
+│   ├── auth.ts            # Authentication utilities
+│   ├── finance.ts         # Financial management functions
+│   ├── security.ts        # Security functions
+│   ├── community.ts       # Community functions
+│   ├── facilities.ts      # Facilities functions
+│   ├── payment.ts         # Payment integration
+│   ├── notifications.ts   # Notification functions
+│   └── database-setup.sql # Database schema
+├── types/                 # TypeScript type definitions
+└── utils/                 # Utility functions
+```
 
-2. Place all generated markdown files from CodeGuide in this directory:
-   ```bash
-   # Example structure
-   documentation/
-   ├── project_requirements_document.md             
-   ├── app_flow_document.md
-   ├── frontend_guideline_document.md
-   └── backend_structure_document.md
-   ```
+## Penggunaan
 
-3. These documentation files will be automatically tracked by git and can be used as a reference for your project's features and implementation details.
+- Warga dapat mendaftar dan login melalui Clerk
+- Setelah login, warga dapat mengakses dashboard dan fitur sesuai peran
+- Admin memiliki akses ke panel admin untuk mengelola sistem
+- Sistem mendukung pembayaran IPL melalui QRIS Midtrans
+- Notifikasi dikirim melalui WhatsApp Gateway
 
-## Contributing
+## Testing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+```bash
+npm run dev  # Menjalankan aplikasi dalam mode development
+npm run build  # Membangun aplikasi untuk production
+npm start  # Menjalankan aplikasi dalam mode production
+```
+
+## Deployment
+
+Aplikasi siap untuk dideploy ke platform apapun yang mendukung Next.js 14+ dengan App Router (Vercel, Netlify, Railway, DigitalOcean, dll.)
+
+Pastikan untuk:
+1. Mengonfigurasi semua variabel lingkungan di production
+2. Mengganti URL webhook di Clerk dan Midtrans ke URL production
+3. Mengganti `MIDTRANS_IS_PRODUCTION` ke `true` jika menggunakan akun production Midtrans
+
+## Lisensi
+
+MIT
